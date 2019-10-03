@@ -17,7 +17,7 @@ public class Room{
 		numRoomes++;
 	}
 
-	public void addDevice(Dispositivo device){
+	public void addDevice(Device device){
 		devices.putIfAbsent(device.getId(),device.getId());
 	}
 
@@ -36,4 +36,9 @@ public class Room{
 	public void setName(String name){
 		this.name = name;
 	}
+	
+	public void removeDevice(Device device){
+    	if(room.containsKey(device.getId())){
+    		room.remove(device.getId());
+    	}
 }
