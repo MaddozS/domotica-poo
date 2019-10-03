@@ -1,6 +1,7 @@
 public class Area {
     private String areaName;
     private String areaId;
+    public Map<String, Room> rooms=new HashMap<>();
 
     Area(String areaName, String areaId){
     	this.areaName=areaName;
