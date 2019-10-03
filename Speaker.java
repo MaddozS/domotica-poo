@@ -1,20 +1,17 @@
-public class Speaker implements Device{
+public class Speaker extends Device{
 
-	private static int id; //id del dispositivo
 	private String brand; //marca del dispositivo
 	private String model; //modelo del dispositivo
 	private Boolean status; //indica si el dispositivo se encuentra encendido o apagado
 	private int volume; // Nivel de volumen de TV
 
-	public Speaker(String brand, String model){
-		id++;
+	public Speaker(int roomId, int areaId, int houseId, String brand, String model){
 		this.brand = brand;
 		this.model = model;
-		this.id = id;
-	}
-
-	public int getId(){
-		return id;
+		this.setDeviceId();
+		this.setRoomId();
+		this.setAreaId();
+		this.setHouseId();
 	}
 
 	public String getStatus(){

@@ -1,6 +1,5 @@
-public class TV implements Device{
+public class TV extends Device{
 
-	private static int id; //id del dispositivo
 	private String brand; //marca del dispositivo
 	private String model; //modelo del dispositivo
 	private Boolean status; //indica si el dispositivo se encuentra encendido o apagado
@@ -8,15 +7,13 @@ public class TV implements Device{
 	private int channel; //Canal de TV
 
 	//Constructor define marca y modelo de TV
-	public TV(String brand, String model){
-		id++;
+	public TV(int roomId, int areaId, int houseId, String brand, String model){
 		this.brand = brand;
 		this.model = model;
-		this.id = id;
-	}
-
-	public int getId(){
-		return id;
+		this.setDeviceId();
+		this.setRoomId(roomId);
+		this.setAreaId(areaId);
+		this.setHouseId(houseId);
 	}
 
 	public String getStatus(){
