@@ -3,7 +3,7 @@ import java.util.Map;
 
 public class Room{
 
-	private Map <String,Integer> devices;
+	private Map <Integer,Integer> devices;
 	private String name;
 	private int id;
 	private static int numRoomes = 1;
@@ -18,7 +18,7 @@ public class Room{
 	}
 
 	public void addDevice(Dispositivo device){
-		devices.putIfAbsent(device.getName(),device.getId());
+		devices.putIfAbsent(device.getId(),device.getId());
 	}
 
 	public Map getDeviceList(){
