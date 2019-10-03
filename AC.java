@@ -1,21 +1,18 @@
-public class AC implements Device{
+public class AC extends Device{
 
-	private static int id; //id del dispositivo
 	private String brand; //marca del dispositivo
 	private String model; //modelo del dispositivo
 	private Boolean status; //indica si el dispositivo se encuentra encendido o apagado
 	private int temp = 20; //temperatura del clima;
 
 	//Constructor define marca y modelo del AC
-	public AC(String brand, String model){ //
-		id++; //Instancia de la cantidad de AC
+	public AC(int roomId, int areaId, int houseId, String brand, String model){ //
 		this.brand = brand;
 		this.model = model;
-		this.id = id;
-	}
-
-	public int getId(){
-		return id;
+		this.setDeviceId();
+		this.setRoomId(roomId);
+		this.setAreaId(areaId);
+		this.setHouseId(houseId);
 	}
 
 	public String getBrand(){
@@ -50,6 +47,18 @@ public class AC implements Device{
 	//Sube temperatura
 	public void heatUp(){
 		temp++;
+	}
+
+	//Despliega informacion del AC
+	public void showInfo(){
+		System.out.println("CasaId: " + getHouseId() +
+			"\nAreaId: " + getAreaId() + 
+			"\nHabitacion: " + getRoomId() +
+			"\nId: " + getDeviceId() + 
+			"\nMarca: " +  brand + 
+			"\nModelo: " + model +
+			"\nStatus: " + status +
+			"\nTemperatura: " + temp);
 	}
 
 
