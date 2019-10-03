@@ -52,6 +52,15 @@ public class AC implements Device{
 		temp++;
 	}
 
+	//Despliega informacion del AC
+	public void showInfo(){
+		System.out.println("Id: " + id + 
+			"\nMarca: " +  brand + 
+			"\nModelo: " + model +
+			"\nStatus: " + status +
+			"\nTemperatura: " + temp);
+	}
+
 
 
 }

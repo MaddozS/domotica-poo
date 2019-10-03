@@ -1,6 +1,9 @@
 # Compiled class file
 *.class
 
+# Test file for the devices
+*Main.java
+
 # Log file
 *.log
 

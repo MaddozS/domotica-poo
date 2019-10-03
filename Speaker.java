@@ -1,14 +1,12 @@
-public class TV implements Device{
+public class Speaker implements Device{
 
 	private static int id; //id del dispositivo
 	private String brand; //marca del dispositivo
 	private String model; //modelo del dispositivo
 	private Boolean status; //indica si el dispositivo se encuentra encendido o apagado
 	private int volume; // Nivel de volumen de TV
-	private int channel; //Canal de TV
 
-	//Constructor define marca y modelo de TV
-	public TV(String brand, String model){
+	public Speaker(String brand, String model){
 		id++;
 		this.brand = brand;
 		this.model = model;
@@ -21,10 +19,6 @@ public class TV implements Device{
 
 	public String getStatus(){
 		return status;
-	}
-
-	public void setChannel(int channelTv){
-		channel = channelTv;
 	}
 
 	public void turnOff(){
