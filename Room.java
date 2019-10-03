@@ -3,7 +3,7 @@ import java.util.Map;
 
 public class Room{
 
-	private Map<String,Device> devices = new HashMap<>();
+	private Map<Integer,Device> devices = new HashMap<>();
 	private String name;
 	private static int roomId;
 	private static int id;
