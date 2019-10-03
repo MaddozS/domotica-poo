@@ -3,22 +3,18 @@ import java.util.Map;
 
 public class Room{
 
-	private Map <Integer,Integer> devices;
+	private Map<String,Device> devices = new HashMap<>();
 	private String name;
-	private int id;
-	private static int numRoomes = 1;
-	private int numDevices;
+	private static int roomId;
+	private static int id;
 
 	public Room(String name){
-		devices = new HashMap<>();
-		this.numDevices = 0;
+		roomId++;
 		this.name = name;
-		this.id = numRoomes;
-		numRoomes++;
 	}
 
 	public void addDevice(Device device){
-		devices.putIfAbsent(device.getId(),device.getId());
+		devices.put(device.getId(),device);
 	}
 
 	public Map getDeviceList(){
@@ -26,7 +22,7 @@ public class Room{
 	}
 
 	public int getId(){
-		return this.id;
+		return this.roomId;
 	}
 
 	public String getName(){
@@ -38,7 +34,8 @@ public class Room{
 	}
 	
 	public void removeDevice(Device device){
-    	if(room.containsKey(device.getId())){
-    		room.remove(device.getId());
-    	}
+    	if(devices.get(device.getId()) != null){
+    		devices.remove(device.getId());
+		}
+	}
 }
