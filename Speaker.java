@@ -1,6 +1,11 @@
 public class Speaker extends Device{
 
 	private int volume; // Nivel de volumen de TV
+	public int counter = 0;
+
+	public int SpeakerCounter(){
+		counter++;
+	}
 
 	public Speaker(int roomId, int areaId, int houseId, String brand, String model){
 		super(roomId, areaId, houseId, brand, model);
@@ -22,7 +27,8 @@ public class Speaker extends Device{
 			";Brand: " +  brand + 
 			";Model: " + model +
 			";Status: " + status +
-			";Volume: " + volume;
+			";Volume: " + volume + 
+			";Devices: " + counter;
 		return info;
 	}
 }

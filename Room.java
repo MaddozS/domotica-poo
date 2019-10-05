@@ -35,4 +35,20 @@ public class Room{
     		devices.remove(device.getId());
 		}
 	}
+
+	public void turnOnAllDevices() {
+        for (Device device: devices.id()) {
+            System.out.println(device + "turned on");
+            device.turnOn();
+        }
+    }
+
+    public void turnOffAllDevices() {
+    for (Device device: devices.id()) {
+        System.out.println(device + "turned off");
+        device.turnOff();
+   		}
+    }
 }
+
+
