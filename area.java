@@ -1,36 +1,38 @@
+import java.util.HashMap;
+import java.util.Map;
+
+
 public class Area {
     private String areaName;
-    private String areaId;
-    public Map<String, Room> rooms=new HashMap<>();
+    private int id;
+    private static int areaId;
+    public HashMap<Integer, Room> rooms = new HashMap<>();
 
-    Area(String areaName, String areaId){
+    public Area(String areaName){
+        areaId++;
     	this.areaName=areaName;
-    	this.areaId=areaId;
+    	id=areaId;
     }
 
-    public void setAreaName(String areaName){
-    	this.areaName=areaName;
-    }
-
-    public void setAreaId(String areaId){
-    	this.areaId=areaId;
-    }
-
-    public String getAreaName(){
+    public String getName(){
     	return areaName;
     }
 
-    public String getAreaId(){
-    	return areaId;
+    public int getId(){
+    	return this.id;
+    }
+
+    public Map getRoomList(){
+        return rooms;
     }
 
     public void addRoom(Room newRoom){
-    	room.put(newRoom.getRoomId(), newRoom)
+    	rooms.put(newRoom.getId(), newRoom);
     }
 
-    public void removeRoom(String roomID){
-    	if(room.containsKey(roomID)){
-    		room.remove(roomID);
+    public void removeRoom(Room room){
+    	if(rooms.get(room.getId()) != null){
+    		rooms.remove(room.getId());
     	}
     }
 }

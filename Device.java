@@ -9,14 +9,11 @@ public abstract class Device{
 	protected static int count_devices;
 	protected String status; //indica si el dispositivo se encuentra encendido o apagado
 
-	public Device(int roomId, int areaId, int houseId, String brand, String model){ //
+	public Device(String brand, String model){ //
 		count_devices++;
 		this.brand = brand;
 		this.model = model;
 		this.deviceId = count_devices;
-		this.roomId = roomId;
-		this.areaId = areaId;
-		this.houseId = houseId;
 		status = "Off";
 	}
 	public void turnOff(){
@@ -25,18 +22,6 @@ public abstract class Device{
 
 	public void turnOn(){
 		status = "Off";
-	}
-
-	public int getRoomId(){
-		return roomId;
-	}
-
-	public int getAreaId(){
-		return areaId;
-	}
-
-	public int getHouseId(){
-		return houseId;
 	}
 
 	public int getId(){

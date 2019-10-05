@@ -4,8 +4,8 @@ public class TV extends Device{
 	private int channel; //Canal de TV
 
 	//Constructor define marca y modelo de TV
-	public TV(int roomId, int areaId, int houseId, String brand, String model){
-		super(roomId, areaId, houseId, brand, model);
+	public TV(String brand, String model){
+		super(brand, model);
 	}
 
 	public void setChannel(int channelTv){
@@ -22,9 +22,6 @@ public class TV extends Device{
 
 	public String getInfo(){
 		String info = "Device: " + getId() + 
-			";House: " + getHouseId() +
-			";Area: " + getAreaId() + 
-			";Room: " + getRoomId() +
 			";Brand: " +  brand + 
 			";Model: " + model +
 			";Status: " + status +
