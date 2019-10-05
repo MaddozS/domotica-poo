@@ -1,44 +1,58 @@
-
-import java.io.IOException;
 import java.io.FileWriter;
 import java.io.BufferedWriter;
 import java.io.BufferedReader;
 import java.io.FileReader;
 
 public class HouseCRUD {
-    public void createHouse(House house) throws IOException{
-        String record;
-        BufferedReader br = new BufferedReader( new FileReader("AdminHouse_db.txt") );
-        BufferedWriter bw = new BufferedWriter( new FileWriter("AdminHouse_db.txt",true) );
-        
-        while( ( record = br.readLine() ) != null ) {
+    public void createHouse(House house){
+         try {
+            FileReader fileReader = 
+                new FileReader(database);
+            BufferedReader bufferedReader = 
+                new BufferedReader(fileReader);
+            while((line = bufferedReader.readLine()) != null) {
+                String[] columns = line.split(";");
+                String[] key = columns[0].split(": ");
+                String device_id = key[1];
             if( record.contains("-") ) {
                 bw.write(house.getHouseId()+";"+house.getHouseName()+";");
-    		bw.flush();
-    		bw.newLine();
-    		bw.close();
-            }
-        }
+    			bw.flush();
+    			bw.newLine();
+    			bw.close();
+            	}
+        	}
         br.close();
     }
-    public void createDevices() throws IOException{
-        String record;
-        BufferedReader br = new BufferedReader( new FileReader("devices_database.txt") );
-        BufferedWriter bw = new BufferedWriter( new FileWriter("devices_database.txt",true) );
+    public void createDevices(){
+        try {
+            FileReader fileReader = 
+                new FileReader(database);
+            BufferedReader bufferedReader = 
+                new BufferedReader(fileReader);
+            while((line = bufferedReader.readLine()) != null) {
+                String[] columns = line.split(";");
+                String[] key = columns[0].split(": ");
+                String device_id = key[1];
+
+            	if(devices.get(device.getId()) != null){
+            		System.out.println("This device already exists");
+        		}
+        		else{
+            		String entry;
         
-        while( ( record = br.readLine() ) != null ) {
-            if( record.contains("-") ) {
-    		bw.flush();
-    		bw.newLine();
-    		bw.close();
-            }
-        }
+            		entry = device.getInfo();
+            		devices.put(device.getId(), device);
+            		total_devices++;
+            		insertDatabase(entry);
+        		}
+        	}
         br.close();
+    	}
     }
-    public void createRoom() throws IOException{
+    public void createRoom(){
         
     }
-    public void readHouse() throws IOException{
+    public void readHouse(){
         
     }
     public void readFloor() throws IOException{
