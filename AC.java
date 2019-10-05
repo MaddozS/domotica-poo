@@ -3,8 +3,8 @@ public class AC extends Device{
 	private int temp = 16; //temperatura del clima;
 
 	//Constructor define marca y modelo del AC
-	public AC(int roomId, int areaId, int houseId, String brand, String model){ //
-		super(roomId, areaId, houseId, brand, model);
+	public AC(String brand, String model){ //
+		super(brand, model);
 	}
 
 	public String getBrand(){
@@ -35,9 +35,6 @@ public class AC extends Device{
 	//Despliega informacion del AC
 	public String getInfo(){
 		String info = "Device: " + getId() + 
-			";House: " + getHouseId() +
-			";Area: " + getAreaId() + 
-			";Room: " + getRoomId() +
 			";Brand: " +  brand + 
 			";Model: " + model +
 			";Status: " + status +
