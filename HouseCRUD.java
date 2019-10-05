@@ -5,11 +5,9 @@ import java.io.FileReader;
 
 public class HouseCRUD {
     public void createHouse(House house){
-         try {
-            FileReader fileReader = 
-                new FileReader(database);
-            BufferedReader bufferedReader = 
-                new BufferedReader(fileReader);
+        try {
+            FileReader fileReader = new FileReader(database);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
             while((line = bufferedReader.readLine()) != null) {
                 String[] columns = line.split(";");
                 String[] key = columns[0].split(": ");
@@ -21,14 +19,15 @@ public class HouseCRUD {
     			bw.close();
             	}
         	}
-        br.close();
+            br.close();
+        }catch(IOException ex){
+            System.out.println("Something went wrong");
+        }
     }
     public void createDevices(){
         try {
-            FileReader fileReader = 
-                new FileReader(database);
-            BufferedReader bufferedReader = 
-                new BufferedReader(fileReader);
+            FileReader fileReader = new FileReader(database);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
             while((line = bufferedReader.readLine()) != null) {
                 String[] columns = line.split(";");
                 String[] key = columns[0].split(": ");
@@ -46,21 +45,9 @@ public class HouseCRUD {
             		insertDatabase(entry);
         		}
         	}
-        br.close();
-    	}
+            br.close();
+    	}catch(IOException ex){
+            System.out.println("Something went wrong");
+        };
     }
-    public void createRoom(){
-        
-    }
-    public void readHouse(){
-        
-    }
-    public void readFloor() throws IOException{
-        
-    }
-    public void readRoom() throws IOException{
-        
-    }
-    
-    
 }

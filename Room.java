@@ -6,11 +6,12 @@ public class Room{
 	private Map<Integer,Device> devices = new HashMap<>();
 	private String name;
 	private static int roomId;
-	private static int id;
+	private int id;
 
 	public Room(String name){
 		roomId++;
 		this.name = name;
+		id = roomId;
 	}
 
 	public void addDevice(Device device){
@@ -22,15 +23,11 @@ public class Room{
 	}
 
 	public int getId(){
-		return this.roomId;
+		return this.id;
 	}
 
 	public String getName(){
 		return this.name;
-	}
-
-	public void setName(String name){
-		this.name = name;
 	}
 	
 	public void removeDevice(Device device){
