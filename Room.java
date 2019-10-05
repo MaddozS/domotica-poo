@@ -45,6 +45,13 @@ public class Room{
             device.turnOn();
         }
     }
+
+    public void turnOffAllDevices() {
+    for (Device device: devices.id()) {
+        System.out.println(device + "turned off");
+        device.turnOff();
+   		}
+    }
 }
 
 
