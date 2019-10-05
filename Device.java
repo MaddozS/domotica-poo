@@ -8,6 +8,7 @@ public abstract class Device{
 	protected int deviceId;
 	protected static int count_devices;
 	protected String status; //indica si el dispositivo se encuentra encendido o apagado
+	public int devOn=0;//LLeva cuenta de cuantos dispositivos hay encendidos
 
 	public Device(String brand, String model){ //
 		count_devices++;
@@ -17,11 +18,13 @@ public abstract class Device{
 		status = "Off";
 	}
 	public void turnOff(){
-		status = "On";
+		status = "Off";
+		devOn--;
 	}
 
 	public void turnOn(){
-		status = "Off";
+		status = "On";
+		devOn++;
 	}
 
 	public int getId(){
