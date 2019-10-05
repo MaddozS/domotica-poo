@@ -1,7 +1,12 @@
 public class Lights extends Device{
+	public int counter = 0;
 
 	public Lights(int roomId, int areaId, int houseId, String brand, String model){
 		super(roomId, areaId, houseId, brand, model);
+	}
+
+	public int LightCounter(){
+		counter++;
 	}
 
 	public String getInfo(){
@@ -11,7 +16,8 @@ public class Lights extends Device{
 			";Room: " + getRoomId() +
 			";Brand: " +  brand + 
 			";Model: " + model +
-			";Status: " + status;
+			";Status: " + status + 
+			";Devices: " + counter;
 		return info;
 	}
 }

@@ -1,6 +1,11 @@
 public class AC extends Device{
 
 	private int temp = 16; //temperatura del clima;
+	public int counter = 0;
+
+	public int ACcounter(){
+		counter++;
+	}
 
 	//Constructor define marca y modelo del AC
 	public AC(int roomId, int areaId, int houseId, String brand, String model){ //
@@ -41,7 +46,8 @@ public class AC extends Device{
 			";Brand: " +  brand + 
 			";Model: " + model +
 			";Status: " + status +
-			";Temperature: " + temp + ";";
+			";Temperature: " + temp + 
+			";Devices: " + counter;
 		return info;
 	}
 }

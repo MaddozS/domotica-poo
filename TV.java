@@ -2,6 +2,11 @@ public class TV extends Device{
 
 	private int volume = 35; // Nivel de volumen de TV
 	private int channel; //Canal de TV
+	public int counter = 0;
+
+	public int TVCounter(){
+		counter++;
+	}
 
 	//Constructor define marca y modelo de TV
 	public TV(int roomId, int areaId, int houseId, String brand, String model){
@@ -29,7 +34,8 @@ public class TV extends Device{
 			";Model: " + model +
 			";Status: " + status +
 			";Channel: " + channel +
-			";Volume: " + volume;
+			";Volume: " + volume + 
+			";Devices: " + counter;
 		return info;
 	}
 }
