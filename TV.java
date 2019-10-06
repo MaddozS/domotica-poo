@@ -4,8 +4,8 @@ public class TV extends Device{
 	private int channel; //Canal de TV
 
 	//Constructor define marca y modelo de TV
-	public TV(String brand, String model){
-		super(brand, model);
+	public TV(String name,String brand, String model){
+		super(name, brand, model, "TV");
 	}
 
 	public void setChannel(int channelTv){
@@ -21,12 +21,13 @@ public class TV extends Device{
 	}
 
 	public String getInfo(){
-		String info = "Device: " + getId() + 
-			";Brand: " +  brand + 
-			";Model: " + model +
-			";Status: " + status +
-			";Channel: " + channel +
-			";Volume: " + volume;
-		return info;
+		return "ID:" + deviceId +
+			";Type:" + type + 
+			";Device:" + name + 
+			";Brand:" +  brand + 
+			";Model:" + model +
+			";Status:" + status +
+			";Channel:" + channel +
+			";Volume:" + volume;
 	}
 }

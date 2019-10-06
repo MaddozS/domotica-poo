@@ -21,18 +21,8 @@ public class Area {
     public int getId(){
     	return this.id;
     }
-
-    public Map getRoomList(){
-        return rooms;
-    }
-
-    public void addRoom(Room newRoom){
-    	rooms.put(newRoom.getId(), newRoom);
-    }
-
-    public void removeRoom(Room room){
-    	if(rooms.get(room.getId()) != null){
-    		rooms.remove(room.getId());
-    	}
+    public String getInfo(){
+        return "ID:" + id +
+            ";Name:" + areaName;
     }
 }

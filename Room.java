@@ -1,38 +1,29 @@
-import java.util.HashMap;
-import java.util.Map;
-
 public class Room{
 
-	private Map<Integer,Device> devices = new HashMap<>();
-	private String name;
+	private String roomName;
 	private static int roomId;
 	private int id;
 
 	public Room(String name){
 		roomId++;
-		this.name = name;
+		this.roomName = name;
 		id = roomId;
 	}
-
-	public void addDevice(Device device){
-		devices.put(device.getId(),device);
-	}
-
-	public Map getDeviceList(){
-		return devices;
-	}
+	
+    public void setName(String roomName){
+    	this.roomName=roomName;
+    }
 
 	public int getId(){
 		return this.id;
 	}
 
 	public String getName(){
-		return this.name;
+		return this.roomName;
 	}
 	
-	public void removeDevice(Device device){
-    	if(devices.get(device.getId()) != null){
-    		devices.remove(device.getId());
-		}
-	}
+	public String getInfo(){
+        return "ID:" + id +
+            ";Name:" + roomName;
+    }
 }

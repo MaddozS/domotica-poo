@@ -1,43 +1,46 @@
 public class Main{
 	public static void main(String[] args){
 
-		House house1 = new House("TeamHouse");
-		Room room1 = new Room("PedroRoom");
-		Room room2 = new Room("AxelRoom");
-		Area area1 = new Area("LivingRoom");
-		AC d1 = new AC("LG", "fef3f");
-		AC d2 = new AC("Samsung", "fefdddww3f");
-		TV t1 = new TV("Panasonic", "d3d3f");
-		DeviceAdmin admin1 = new DeviceAdmin();
+		Room room1 = new Room("Pedro's Room");
+		Room room2 = new Room("Axel's Room");
+		Area area1 = new Area("Couple Rooms");
+		Device d1 = new AC("AC Axel", "LG", "fef3f");
+		Device d2 = new AC("AC Pedro", "Samsung", "fefdddww3f");
+		Device t1 = new TV("TV Axel", "Panasonic", "d3d3f");
+		Device s1 = new Speaker("Speaker Pedro", "Bose", "d3d3sf");
 
-		room1.addDevice(d1);
-		room1.addDevice(d2);
-		room1.addDevice(t1);
 
-		area1.addRoom(room1);
-		area1.addRoom(room2);
+		DeviceAdmin admin_device = new DeviceAdmin();
+		HouseAdmin admin_house = new HouseAdmin("Team House");
+		
+		admin_house.addArea(area1);
+		admin_house.addRoom(room1, area1);
+		admin_house.addRoom(room2, area1);
 
-		house1.addArea(area1);
+		admin_device.addDevice(d1, room1);
+		admin_device.addDevice(t1, room1);
+		admin_device.addDevice(d2, room2);
+		admin_device.addDevice(s1, room2);
 
-		System.out.println("ROOM " + room1.getName() + ":" + room1.getId() + room2.getName() + " " + room2.getId());
-		System.out.println(room1.getDeviceList());
 
-		System.out.println("AREA " + area1.getName() + ": " + area1.getId() + ": " + area1.getRoomList());
+		// Print all devices with its information
+		admin_device.printDevices();
 
-		System.out.println("HOUSE " + house1.getName() + ": " + house1.getId() + ":" + house1.getAreaList());
+		// Print how many devices are on
+		int aux1 = admin_device.devicesOn();
+		System.out.println("Devices on: " + aux1);
+		int aux2 = admin_device.devicesOff();
+		System.out.println("Devices off: " + aux2);
 
-		room1.removeDevice(d1);
-		area1.removeRoom(room1);
-		house1.removeArea(area1);
-		System.out.println(room1.getName() + ":" + room1.getId() + room2.getName() + " " + room2.getId());
-		System.out.println(room1.getDeviceList());
-		System.out.println(area1.getRoomList());
-		System.out.println(house1.getAreaList());
+		//Turn on/off all devices by room
+		admin_device.turnOnAllDevicesByRoom(room1);
+		System.out.println("Devices on by room: ");
+		admin_device.printDevices();
+		System.out.println("Devices off by room: ");
+		admin_device.turnOffAllDevicesByRoom(room1);
+		admin_device.printDevices();
 
-		admin1.addDevice(d1);
-		admin1.addDevice(d2);
-
-		admin1.showAllDevices();
-
+		// Gell the count off each type of device
+		admin_device.printTotalDevicesByType();
 	}
 }

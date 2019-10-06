@@ -1,14 +1,15 @@
 public class Lights extends Device{
 
-	public Lights(String brand, String model){
-		super(brand, model);
+	public Lights(String name, String brand, String model){
+		super(name, brand, model, "Light");
 	}
 
 	public String getInfo(){
-		String info = "Device: " + getId() + 
-			";Brand: " +  brand + 
-			";Model: " + model +
-			";Status: " + status;
-		return info;
+		return "ID:" + deviceId +
+			";Type:" + type + 
+			";Device:" + name + 
+			";Brand:" +  brand + 
+			";Model:" + model +
+			";Status:" + status;
 	}
 }
